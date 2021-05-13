@@ -22,7 +22,7 @@ def home():
         f"<h4>Available Routes:</h4>"       
         f'<a href="/api/demographics">Demographics</a><br/>' 
         f'<a href="/api/timeseries">Time Series</a><br/>'  
-        f'<a href="/"><h4>Back</h4></a><br/>' 
+        f'<a href="" onclick="window.history.back();"><h4>Back</h4></a><br/>' 
     )       
 
 # @app.route("/api/asylumseekers")
