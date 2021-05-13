@@ -1,12 +1,12 @@
 #CORS
 from flask import Flask, jsonify, render_template
-from flask_cors import CORS, cross_origin
+#from flask_cors import CORS, cross_origin
 
 
 # dependencies
 # from config import database, connect_string
 # relational database class with our data retrieval functions
-from projectcsv import Asylum_Seekers
+from project import Asylum_Seekers
 
 #################################################
 # Database Setup
@@ -22,7 +22,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 # Flask Routes
 #################################################
 @app.route("/")
-@cross_origin()
+#@cross_origin()
 def home():
     """List all available api routes."""
     return (
@@ -38,12 +38,12 @@ def home():
 #     return jsonify(data.asy_seekers_info())
 
 @app.route("/api/demographics")
-@cross_origin()
+#@cross_origin()
 def demo():
     return jsonify(data.demographics())
 
 @app.route("/api/timeseries")
-@cross_origin()
+#@cross_origin()
 def time():
     return jsonify(data.time_series_info())
 
