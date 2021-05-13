@@ -2,7 +2,7 @@
 // Male v Female Bar Chart
 // -----------------------------------
 var dataUrl = "/api/demographics"
-d3.csv("/demographics.csv").then((data) => {
+d3.json(dataUrl).then((data) => {
 })
 
 // // Create function
@@ -14,9 +14,9 @@ function build_mfChart() {
 // Create Function 
 // function build_topChart(sample) {
 
-  var dataUrl = "http://127.0.0.1:5000//api/timeseries";
+  var dataUrl = "/api/timeseries";
 
-  d3.csv("/timeseries.csv").then((data) => {
+  d3.json(dataUrl).then((data) => {
 
     // var top_year = data.map(info => info.year);
     var host = data.map(info => info.host_country);
@@ -51,10 +51,10 @@ function build_mfChart() {
 
 function buildCharts(sample) {
 
-  // var dataUrl = "http://127.0.0.1:5000/api/demographics";
+  var dataUrl = "/api/demographics";
 
   
-  d3.csv("/demographics.csv").then((data) => {
+  d3.json(dataUrl).then((data) => {
     var mf_year = data.map(info => info.year);
     var m_total = data.filter(object => object.year == sample).map(info => info.m_total);
     var f_total = data.filter(object => object.year == sample).map(info => info.f_total);
@@ -81,9 +81,9 @@ function buildCharts(sample) {
     Plotly.newPlot("mf_bar", barData, barLayout);
   });
   
-  // var dataUrl = "http://127.0.0.1:5000/api/demographics";
+  var dataUrl = "/api/demographics";
 
-  d3.csv("/demographics.csv").then((data) => {
+  d3.json(dataUrl).then((data) => {
 
 
     var mf_year = data.map(info => info.year);
@@ -124,7 +124,7 @@ function init() {
   // Grab a reference to the dropdown select element
   var selector = d3.select("#selDataset");
   var mf_year;
-  d3.csv("/demographics.csv").then((data) => {
+  d3.json("/api/demographics").then((data) => {
     mf_year = data.map(info => info.year);
     buildCharts(mf_year[0]);
 
